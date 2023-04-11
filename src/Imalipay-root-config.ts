@@ -15,6 +15,8 @@ const basePaths = {
   // formbuilder: "configuration/forms",
   // accounting: "configuration/accounting",
   // "customer-management": "customer-management",
+  customers: "dashboard/registered-users",
+  payments:"dashboard/payments",
   marketPlace: "dashboard/marketPlace",
   dashboard: "dashboard",
   auth:'/'

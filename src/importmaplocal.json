@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+    "@Imalipay/root-config": "//localhost:9000/Imalipay-root-config.js",
+    "@Imalipay/marketPlace":"http://localhost:8081/Imalipay-marketPlace.js",
+    "@Imalipay/dashboard":"http://localhost:8080/Imalipay-dashboard.js",
+    "@Imalipay/auth":"http://localhost:8084/Imalipay-auth.js",
+    "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
+    "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js"
+  }
+}
