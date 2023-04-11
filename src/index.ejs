@@ -51,7 +51,7 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="https://dcydlwtx7fw9v.cloudfront.net/importmap.json"></script>
+  <!-- <script type="systemjs-importmap" src="https://dcydlwtx7fw9v.cloudfront.net/importmap.json"></script> -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
 
   <% if (isLocal) { %>
@@ -60,15 +60,16 @@
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
         "@Imalipay/root-config": "//localhost:9000/Imalipay-root-config.js",
-        "@Imalipay/marketPlace":"http://localhost:8081/Imalipay-marketPlace.js",
-        "@Imalipay/dashboard":"http://localhost:8080/Imalipay-dashboard.js",
-        "@Imalipay/auth":"http://localhost:8084/Imalipay-auth.js",
-        "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
-        "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js"
+        "@Imalipay/auth":"http://a9c44aa58c6b24e1a854f82eed05fa31-933909413.eu-west-1.elb.amazonaws.com/Imalipay-auth.js"  
       }
     }
   </script>
   <% } %>
+
+  <!-- "@Imalipay/marketPlace":"http://localhost:8081/Imalipay-marketPlace.js",
+        "@Imalipay/dashboard":"http://localhost:8080/Imalipay-dashboard.js",
+        "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
+        "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js" -->
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
@@ -91,23 +92,23 @@
           <application name="@Imalipay/auth" props="basePaths"></application>
         </route>
 
-        <route path="dashboard/market-place">
+        <!-- <route path="dashboard/market-place">
           <div class="content">
           <application name="@Imalipay/marketPlace" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
           </div>
-        </route>
+        </route> -->
 
-        <route path="dashboard/registered-users">
+        <!-- <route path="dashboard/registered-users">
           <div class="content">
           <application name="@Imalipay/customers" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
           </div>
-        </route>
+        </route> -->
 
-        <route path="dashboard/payments">
+        <!-- <route path="dashboard/payments">
           <div class="content">
           <application name="@Imalipay/payments" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
           </div>
-        </route>
+        </route> -->
   </div>
 
   </main>

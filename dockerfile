@@ -15,6 +15,9 @@ FROM nginx:1.21.0-alpine as development
 ENV NODE_ENV development
 # Copy built assets from `builder` image
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+COPY --from=builder /app/importmap.json /usr/share/nginx/html
+
 # Add your nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose port

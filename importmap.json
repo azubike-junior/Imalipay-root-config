@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.1/lib/system/single-spa.min.js",
+    "@Imalipay/root-config": "http://aec41a217bb334eb58a8e161854a7cba-13363681.eu-west-1.elb.amazonaws.com/Imalipay-root-config.js",
+    "@Imalipay/auth":"http://a9c44aa58c6b24e1a854f82eed05fa31-933909413.eu-west-1.elb.amazonaws.com/Imalipay-auth.js"
+  }
+}
