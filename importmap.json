@@ -1,9 +1,13 @@
 {
-  "imports": {
-    "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
-    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.1/lib/system/single-spa.min.js",
-    "@Imalipay/root-config": "http://aec41a217bb334eb58a8e161854a7cba-13363681.eu-west-1.elb.amazonaws.com/Imalipay-root-config.js",
-    "@Imalipay/auth":"http://a9c44aa58c6b24e1a854f82eed05fa31-933909413.eu-west-1.elb.amazonaws.com/Imalipay-auth.js"
-  }
+      "imports": {
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "@Imalipay/root-config": "https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-root-config.js",
+        "@Imalipay/auth":"https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-auth.js",
+        "@Imalipay/dashboard":"https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-dashboard.js",
+        "@Imalipay/marketPlace":"https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-marketPlace.js",
+        "@Imalipay/customers":"https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-customers.js",
+        "@Imalipay/payments":"https://imalipay-mfe.s3.eu-west-1.amazonaws.com/Imalipay-payments.js"
+      }
 }

@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Imalipay Dashboard</title><style>#base {
+      width: 100%;
+      /* height: 100vh; */
+      display: grid;
+      grid-template: 400px auto;
+      background-color: red;
+    };</style><script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script><meta name="importmap-type" content="systemjs-importmap"/><script type="systemjs-importmap">{
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
+      }
+    }</script><link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script"><script type="systemjs-importmap" src="http://aec41a217bb334eb58a8e161854a7cba-13363681.eu-west-1.elb.amazonaws.com/importmap.json"></script><script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script><template id="single-spa-layout"><single-spa-router><route path="/"><application name="@Imalipay/auth" props="basePaths"></application></route><route path="dashboard/market-place"><div class="content"><application name="@Imalipay/marketPlace" loader="moduleSpinner" error="moduleError" props="basePaths"></application></div></route><route path="dashboard/registered-users"><div class="content"><application name="@Imalipay/customers" loader="moduleSpinner" error="moduleError" props="basePaths"></application></div></route><route path="dashboard/payments"><div class="content"><application name="@Imalipay/payments" loader="moduleSpinner" error="moduleError" props="basePaths"></application></div></route></single-spa-router></template></head><body><noscript>You need to enable JavaScript to run this app for real.</noscript><script>System.import('@Imalipay/root-config');</script><import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full></body></html>
