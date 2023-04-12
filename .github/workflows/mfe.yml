@@ -32,13 +32,13 @@ jobs:
       - name: build image push to registry
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: auth_mfe
+          ECR_REPOSITORY: root_config
           IMAGE_TAG: ${{github.sha}}
         run: |
           DOCKER_BUILDKIT=1 
           docker build . --file Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --tag $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/} 
           docker image ls
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY
+          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
           
   deployment:
     needs: build
