@@ -37,7 +37,7 @@ spec:
       protocol: TCP
   selector:
     app: root-config
-  type: ClusterIP
+  type: LoadBalancer
 
 ---
 apiVersion: networking.k8s.io/v1
