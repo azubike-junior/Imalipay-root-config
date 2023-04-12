@@ -44,17 +44,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: root-config
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx-example
   rules:
     - host: "development.imalipay.com"
       http:
         paths:
-          - path: /root-config
-            pathType: Prefix
-            backend:
+          - backend:
               service:
                 name: root-config
                 port:
