@@ -1,0 +1,72 @@
+name: MFE Workflow
+
+on:
+  push:
+    branches:
+#       - main
+      - development
+
+jobs:
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: branch name
+        run: echo running on branch ${GITHUB_REF##*/}
+        
+      - name: checkout the repository
+        uses: actions/checkout@v3
+      
+      - name: aws login
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
+
+      - name: ecr login
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        
+      - name: build image push to registry
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: auth_mfe
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          DOCKER_BUILDKIT=1 
+          docker build . --file Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --tag $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/} 
+          docker image ls
+          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          
+  deployment:
+    needs: build
+    name: deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: deployment environment
+        run: echo deploying to ${GITHUB_REF##*/}
+        
+      - name: checkout the repository
+        uses: actions/checkout@v2
+
+      - name: aws login
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
+
+      - name: ecr login
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        
+      - name: install kubectl
+        uses: azure/setup-kubectl@v3
+          
+      - name: update kubernetes credentials 
+        run: aws eks update-kubeconfig --name ${GITHUB_REF##*/} --region ${{ secrets.DEVELOPMENT_REGION }}
+
+      - name: deploy to kubernetes
+        run: kubectl apply -f eks.yaml
