@@ -77,6 +77,6 @@ jobs:
         env:
           REPO: ${{ github.event.repository.name }}
         run: |
-          helm upgrade --install $REPO ./$REPO --dry-run --debug
+          helm upgrade --install root-config-mfe ./$REPO --dry-run --debug
 
 
