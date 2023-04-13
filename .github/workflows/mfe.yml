@@ -76,7 +76,13 @@ jobs:
       - name : deploy to eks  with helm
         env:
           REPO: ${{ github.event.repository.name }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{github.sha}}
+          ECR_REPOSITORY: ${{ github.event.repository.name }}
         run: |
-          helm upgrade --install root-config-mfe ./root-config-mfe --debug
+          helm upgrade --install root-config-mfe \
+            --set image.tag = $IMAGE_TAG\
+            --set image.repository = $ECR_REGISTRY/$ECR_REPOSITORY \
+            ./root-config-mfe --debug
 
 
