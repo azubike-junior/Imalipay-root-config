@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "root_config_mfe.fullname" . }}
+  name: {{ include "root-config-mfe.fullname" . }}
   labels:
-    {{- include "root_config_mfe.labels" . | nindent 4 }}
+    {{- include "root-config-mfe.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "root_config_mfe.fullname" . }}
+    name: {{ include "root-config-mfe.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

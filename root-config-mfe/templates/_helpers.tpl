@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "root_config_mfe.name" -}}
+{{- define "root-config-mfe.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "root_config_mfe.fullname" -}}
+{{- define "root-config-mfe.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "root_config_mfe.chart" -}}
+{{- define "root-config-mfe.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "root_config_mfe.labels" -}}
-helm.sh/chart: {{ include "root_config_mfe.chart" . }}
-{{ include "root_config_mfe.selectorLabels" . }}
+{{- define "root-config-mfe.labels" -}}
+helm.sh/chart: {{ include "root-config-mfe.chart" . }}
+{{ include "root-config-mfe.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "root_config_mfe.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "root_config_mfe.name" . }}
+{{- define "root-config-mfe.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "root-config-mfe.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "root_config_mfe.serviceAccountName" -}}
+{{- define "root-config-mfe.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "root_config_mfe.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "root-config-mfe.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
