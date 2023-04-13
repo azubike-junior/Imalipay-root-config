@@ -32,8 +32,8 @@ jobs:
       - name: build image push to registry
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: root_config
           IMAGE_TAG: ${{github.sha}}
+          ECR_REPOSITORY: ${{ github.event.repository.name }}
         run: |
           DOCKER_BUILDKIT=1 
           docker build . --file Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --tag $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/} 
@@ -67,6 +67,22 @@ jobs:
           
       - name: update kubernetes credentials 
         run: aws eks update-kubeconfig --name ${GITHUB_REF##*/} --region ${{ secrets.DEVELOPMENT_REGION }}
+      
+      - uses: azure/setup-helm@v3
+        with:
+          version: 'v3.11.1' # default is latest (stable)
+        id: install
+      
+      - name : deploy to eks  with helm
+        env:
+          REPO: ${{ github.event.repository.name }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{github.sha}}
+          ECR_REPOSITORY: ${{ github.event.repository.name }}
+        run: |
+          helm upgrade --install $REPO ./$REPO \
+            --set image.tag=$IMAGE_TAG \
+            --set image.repository=$ECR_REGISTRY/$ECR_REPOSITORY --debug
+            
 
-      - name: deploy to kubernetes
-        run: kubectl apply -f eks.yaml
+
