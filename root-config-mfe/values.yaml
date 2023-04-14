@@ -49,6 +49,7 @@ ingress:
     alb.ingress.kubernetes.io/target-type: ip # use this for sticky session pod routing in ALB
     alb.ingress.kubernetes.io/group.name: eks-loadbalancer  # Use this to share ALB among multiple ingresses. #CostEffective
     alb.ingress.kubernetes.io/load-balancer-name: eks-loadbalancer  # give ALB a meaningfull name otherwise a random name is assigned by AWS.
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
   hosts:
     - host: development.imalipay.com
       paths: 
