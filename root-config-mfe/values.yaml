@@ -45,7 +45,7 @@ ingress:
   className: nginx
   annotations: 
     nginx.org/mergeable-ingress-type: minion
-    nginx.ingress.kubernetes.io/enable-cors: true
+    nginx.ingress.kubernetes.io/enable-cors: "true"
   hosts:
     - host: dashboard.development.imalipay.com
       paths: 
