@@ -44,7 +44,7 @@ ingress:
   enabled: true
   className: nginx
   annotations: 
-    nginx.org/mergeable-ingress-type: minor
+    nginx.org/mergeable-ingress-type: minion
   hosts:
     - host: dashboard.development.imalipay.com
       paths: 
