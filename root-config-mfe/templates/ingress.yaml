@@ -58,4 +58,19 @@ spec:
               {{- end }}
           {{- end }}
     {{- end }}
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  annotations:
+    nginx.org/mergeable-ingress-type: "master"
+spec:
+  ingressClassName: nginx
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
+  {{- end }}
 {{- end }}
