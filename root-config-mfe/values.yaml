@@ -43,7 +43,6 @@ service:
 ingress:
   enabled: true
   className: nginx
-  ingressClassName: nginx
   annotations: 
     nginx.org/mergeable-ingress-type: master
   hosts:
