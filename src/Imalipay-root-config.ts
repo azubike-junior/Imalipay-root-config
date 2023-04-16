@@ -18,6 +18,7 @@ const basePaths = {
   customers: "dashboard/registered-users",
   payments:"dashboard/payments",
   marketPlace: "dashboard/marketPlace",
+  loans:"dashboad/loans",
   dashboard: "dashboard",
   auth:'/'
 };

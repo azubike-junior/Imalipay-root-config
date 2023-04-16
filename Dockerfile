@@ -22,13 +22,9 @@ WORKDIR /usr/share/nginx/html
 # Copy built assets from `builder` image
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy built assets from `builder` image
-COPY importmap.json /usr/share/nginx/html
-
 # Add your nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose port
 EXPOSE 80
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
 # 
