@@ -1,9 +1,9 @@
 {
       "imports": {
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-        "react": "https://unpkg.com/react@17.0.2/umd/react.production.min.js",
-        "react-dom": "https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js",
-        "react-router-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.3.0/react-router-dom.production.min.js",
+        "react-router-dom": "https://cdn.jsdelivr.net/npm/react-router-dom@6.10.0/dist/umd/react-router-dom.production.min.js",
         "@Imalipay/root-config": "https://dashboard.development.imalipay.com/Imalipay-root-config.js",
         "@Imalipay/auth":"https://dashboard.development.imalipay.com/auth-mfe/Imalipay-auth.js",
         "@Imalipay/dashboard":"https://dashboard.development.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
