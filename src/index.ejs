@@ -29,6 +29,7 @@
   -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
   <meta name="importmap-type" content="systemjs-importmap" />
+   <script src="https://unpkg.com/zone.js"></script> 
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
   <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
@@ -48,6 +49,7 @@
       }
     }
   </script>
+
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
@@ -64,10 +66,10 @@
         "react-router-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.3.0/react-router-dom.production.min.js",
         "@Imalipay/root-config": "http://localhost:9000/Imalipay-root-config.js",
         "@Imalipay/auth":"http://localhost:8084/Imalipay-auth.js",
-        "@Imalipay/dashboard":"https://dashboard.development.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
-        "@Imalipay/marketPlace":"https://dashboard.development.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
-        "@Imalipay/customers":"https://dashboard.development.imalipay.com/customers-mfe/Imalipay-customers.js",
-        "@Imalipay/payments":"https://dashboard.development.imalipay.com/payments-mfe/Imalipay-payments.js"
+        "@Imalipay/dashboard":"http://localhost:8080/Imalipay-dashboard.js",
+        "@Imalipay/marketPlace":"http://localhost:8081/Imalipay-marketPlace.js",
+        "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
+        "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js"
     }
   }
   </script>
