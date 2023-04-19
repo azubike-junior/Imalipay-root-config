@@ -9,6 +9,7 @@
         "@Imalipay/dashboard":"https://dashboard.development.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
         "@Imalipay/marketPlace":"https://dashboard.development.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
         "@Imalipay/customers":"https://dashboard.development.imalipay.com/customers-mfe/Imalipay-customers.js",
-        "@Imalipay/payments":"https://dashboard.development.imalipay.com/payments-mfe/Imalipay-payments.js"
+        "@Imalipay/payments":"https://dashboard.development.imalipay.com/payments-mfe/Imalipay-payments.js",
+        "@Imalipay/loans":"https://dashboard.development.imalipay.com/loans-mfe/Imalipay-loans.js"
       }
 }
