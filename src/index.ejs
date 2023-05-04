@@ -124,7 +124,7 @@
   <template id="single-spa-layout">
   <single-spa-router>
         <route path="/">
-          <application name="@Imalipay/auth" props="basePaths"></application>
+          <application name="@Imalipay/auth" props="basePaths" loader="moduleSpinner" error="moduleError"></application>
         </route>
 
         <route path="dashboard/market-place">
