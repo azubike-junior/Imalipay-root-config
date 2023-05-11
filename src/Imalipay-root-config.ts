@@ -1,12 +1,8 @@
-import PubSub from "pubsub-js";
 import { LifeCycles, registerApplication, start } from "single-spa";
 import {
   constructApplications, constructLayoutEngine, constructRoutes
 } from "single-spa-layout";
 import "./index.css";
-
-const publish = (event, data) => PubSub.publish(event, data)
-const subscribe = (event, callback) => PubSub.subscribe(event, callback)
 
 const basePaths = {
   // dashboard: "dashboard",
@@ -57,7 +53,7 @@ registerApplication({
     customProps: {
       basePaths,
       token: "prop from root",
-    },
+  },
 });
 
 applications.forEach(registerApplication);
