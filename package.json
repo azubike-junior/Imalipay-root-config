@@ -11,8 +11,8 @@
     "check-format": "prettier --check .",
     "prepare": "husky install",
     "build": "concurrently yarn:build:*",
-    "build:webpack": "webpack --config webpack.config.js --mode=development",
-    "build:prod": "webpack --config webpack.prod.js --mode=production",
+    "build:webpack": "webpack --env --config webpack.config.js --mode=development ",
+    "build:prod": "webpack --env --config webpack.prod.js --mode=production ",
     "build:types": "tsc"
   },
   "devDependencies": {
