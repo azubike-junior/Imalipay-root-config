@@ -10,7 +10,7 @@ jobs:
 
   build:
     name: build
-    runs-on: [ self-hosted, "${GITHUB_REF##*/}"]
+    runs-on: ${{ fromJSON('[ "self-hosted", ${GITHUB_REF##*/} ]' }}
 ##    runs-on: [self-hosted, production]
     steps:
       - name: branch name
