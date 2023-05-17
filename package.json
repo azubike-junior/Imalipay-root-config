@@ -3,13 +3,16 @@
   "homepage": ".",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
+    "dev": "webpack serve --port 9000 --env --mode development  --config webpack.config.js",
+    "prod": "webpack serve --port 9000 --env --mode production --config webpack.prod.js",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "prepare": "husky install",
     "build": "concurrently yarn:build:*",
-    "build:webpack": "webpack --mode=production",
+    "build:webpack": "webpack --config webpack.config.js --mode=development",
+    "build:prod": "webpack --config webpack.prod.js --mode=production",
     "build:types": "tsc"
   },
   "devDependencies": {
@@ -45,6 +48,8 @@
     "@types/jest": "^27.0.1",
     "@types/systemjs": "^6.1.1",
     "@types/webpack-env": "^1.16.2",
+    "dotenv": "^16.0.3",
+    "process": "^0.11.10",
     "pubsub-js": "^1.9.4",
     "single-spa": "^5.9.3",
     "single-spa-layout": "^1.6.0"
