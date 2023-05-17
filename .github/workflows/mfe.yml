@@ -10,7 +10,8 @@ jobs:
 
   build:
     name: build
-    runs-on: [self-hosted, production]
+    runs-on: [ self-hosted, "${GITHUB_REF##*/}"]
+##    runs-on: [self-hosted, production]
     steps:
       - name: branch name
         run: echo running on branch ${GITHUB_REF##*/}
@@ -43,7 +44,8 @@ jobs:
   deployment:
     needs: build
     name: deployment
-    runs-on: [self-hosted, production]
+    runs-on: [ self-hosted, "${GITHUB_REF##*/}"]
+##    runs-on: [self-hosted, production]
     steps:
       - name: deployment environment
         run: echo deploying to ${GITHUB_REF##*/}
