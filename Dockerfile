@@ -8,7 +8,7 @@ COPY . .
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN yarn install
 # Build the app
-RUN yarn run build:webpack
+RUN yarn run build:prod
 RUN ls 
 
 # Bundle static assets with nginx
