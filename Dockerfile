@@ -1,3 +1,4 @@
+
 # Use a Node 16 base image
 FROM node:latest as builder
 # Set the working directory to /app inside the container
@@ -7,8 +8,10 @@ COPY . .
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN yarn install
+
 # Build the app
-RUN yarn run build:webpack
+# ENV BUILD_COMMAND=${BUILD_COMMAND:-build:dev}
+RUN yarn run build:prod
 RUN ls 
 
 # Bundle static assets with nginx
