@@ -5,16 +5,15 @@ import {
 import "./index.css";
 
 const basePaths = {
-  // dashboard: "dashboard",
-  // access: "access",
-  // configuration: "configuration/",
-  // formbuilder: "configuration/forms",
-  // accounting: "configuration/accounting",
-  // "customer-management": "customer-management",
-  customers: "dashboard/registered-users",
-  payments:"dashboard/payments",
-  marketPlace: "dashboard/marketPlace",
-  dashboard: "dashboard",
+  loans: "loans",
+  customers: "users",
+  payments:"payments",
+  marketPlace: "marketPlace",
+  dashboard: "dashboard", 
+  "device-management": "device-management",
+  wallet: 'wallet',
+  messaging: 'messaging',
+  settings:'settings',
   auth:'/'
 };
 
