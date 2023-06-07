@@ -8,7 +8,7 @@ const basePaths = {
   loans: "loans",
   customers: "users",
   payments:"payments",
-  marketPlace: "marketPlace",
+  marketPlace: "market-place",
   dashboard: "dashboard", 
   "device-management": "device-management",
   wallet: 'wallet',
