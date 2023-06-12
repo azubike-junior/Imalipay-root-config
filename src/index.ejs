@@ -72,7 +72,8 @@
         "@Imalipay/marketPlace":"http://localhost:8081/Imalipay-marketPlace.js",
         "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
         "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js",
-        "@Imalipay/loans":"http://localhost:8089/Imalipay-loans.js"
+        "@Imalipay/loans":"http://localhost:8089/Imalipay-loans.js",
+        "@Imalipay/deviceManagement":"http://localhost:3001/Imalipay-deviceManagement.js"
     }
   }
   </script>
@@ -132,6 +133,11 @@
         <route path="market-place">
           <div class="content">
           <application name="@Imalipay/marketPlace" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
+          </div>
+        </route>
+        <route path="device-management">
+          <div class="content">
+          <application name="@Imalipay/deviceManagement" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
           </div>
         </route>
 
