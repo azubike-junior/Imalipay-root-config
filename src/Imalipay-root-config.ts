@@ -11,7 +11,7 @@ const basePaths = {
   marketPlace: "market-place",
   dashboard: "dashboard", 
   "device-management": "device-management",
-  wallet: 'wallet',
+  wallet: 'wallets',
   messaging: 'messaging',
   settings:'settings',
   auth:'/'

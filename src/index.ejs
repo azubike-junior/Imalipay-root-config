@@ -73,7 +73,8 @@
         "@Imalipay/customers":"http://localhost:8500/Imalipay-customers.js",
         "@Imalipay/payments":"http://localhost:8088/Imalipay-payments.js",
         "@Imalipay/loans":"http://localhost:8089/Imalipay-loans.js",
-        "@Imalipay/deviceManagement":"http://localhost:3001/Imalipay-deviceManagement.js"
+        "@Imalipay/deviceManagement":"http://localhost:3001/Imalipay-deviceManagement.js",
+        "@Imalipay/ledgers":"http://localhost:3002/Imalipay-ledgers.js"
     }
   }
   </script>
@@ -157,6 +158,12 @@
           <!-- <div class="content"> -->
           <application name="@Imalipay/loans" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
           <!-- </div> -->
+        </route>
+        
+        <route path="wallets">
+          <div class="content">
+          <application name="@Imalipay/ledgers" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
+          </div>
         </route>
       
   </div>
