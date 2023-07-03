@@ -1,88 +1,19 @@
-name: MFE Workflow
+name: root-config-MFE Sandbox Pipeline
 
 on:
   push:
     branches:
-#       - main
-      - development
+      - sandbox
 
 jobs:
-
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: branch name
-        run: echo running on branch ${GITHUB_REF##*/}
-        
-      - name: checkout the repository
-        uses: actions/checkout@v3
-      
-      - name: aws login
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
-
-      - name: ecr login
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-        
-      - name: build image push to registry
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{github.sha}}
-          ECR_REPOSITORY: ${{ github.event.repository.name }}
-        run: |
-          DOCKER_BUILDKIT=1 
-          docker build . --file Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --tag $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/} 
-          docker image ls
-          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
-          
-  deployment:
-    needs: build
-    name: deployment
-    runs-on: ubuntu-latest
-    steps:
-      - name: deployment environment
-        run: echo deploying to ${GITHUB_REF##*/}
-        
-      - name: checkout the repository
-        uses: actions/checkout@v2
-
-      - name: aws login
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
-
-      - name: ecr login
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-        
-      - name: install kubectl
-        uses: azure/setup-kubectl@v3
-          
-      - name: update kubernetes credentials 
-        run: aws eks update-kubeconfig --name ${GITHUB_REF##*/} --region ${{ secrets.DEVELOPMENT_REGION }}
-      
-      - uses: azure/setup-helm@v3
-        with:
-          version: 'v3.11.1' # default is latest (stable)
-        id: install
-      
-      - name : deploy to eks  with helm
-        env:
-          REPO: ${{ github.event.repository.name }}
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{github.sha}}
-          ECR_REPOSITORY: ${{ github.event.repository.name }}
-        run: |
-          helm upgrade --install $REPO ./$REPO \
-            --set image.tag=$IMAGE_TAG \
-            --set image.repository=$ECR_REGISTRY/$ECR_REPOSITORY --debug
-            
-
-
+  root_config_mfe:
+    uses: Imalipay-org/.github/.github/workflows/frontend_pipeline.yml@main
+    with:
+      configure_environment: development
+      configure_namespace: sandbox
+      repository_name: ${{ github.event.repository.name }}
+      partner: ${{ github.event.repository.name }}
+    secrets:
+      aws_configured_region: ${{ secrets.DEVELOPMENT_REGION }}
+      aws_configured_key_id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
+      aws_configured_key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}

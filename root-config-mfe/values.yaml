@@ -46,7 +46,7 @@ ingress:
   annotations: 
     nginx.org/mergeable-ingress-type: minion
   hosts:
-    - host: dashboard.development.imalipay.com
+    - host: dashboard.sandbox.imalipay.com
       paths: 
       - path: "/"
         pathType: Prefix
