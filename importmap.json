@@ -5,11 +5,11 @@
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "react-router-dom": "https://cdn.jsdelivr.net/npm/react-router-dom@6.10.0/dist/umd/react-router-dom.production.min.js",
         "@Imalipay/root-config": "https://dashboard.development.imalipay.com/Imalipay-root-config.js",
-        "@Imalipay/auth":"https://dashboard.development.imalipay.com/auth-mfe/Imalipay-auth.js",
-        "@Imalipay/dashboard":"https://dashboard.development.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
-        "@Imalipay/marketPlace":"https://dashboard.development.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
-        "@Imalipay/customers":"https://dashboard.development.imalipay.com/customers-mfe/Imalipay-customers.js",
-        "@Imalipay/payments":"https://dashboard.development.imalipay.com/payments-mfe/Imalipay-payments.js",
-        "@Imalipay/loans":"https://dashboard.development.imalipay.com/loans-mfe/Imalipay-loans.js"
+        "@Imalipay/auth":"https://dashboard.sandbox.imalipay.com/auth-mfe/Imalipay-auth.js",
+        "@Imalipay/dashboard":"https://dashboard.sandbox.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
+        "@Imalipay/marketPlace":"https://dashboard.sandbox.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
+        "@Imalipay/customers":"https://dashboard.sandbox.imalipay.com/customers-mfe/Imalipay-customers.js",
+        "@Imalipay/payments":"https://dashboard.sandbox.imalipay.com/payments-mfe/Imalipay-payments.js",
+        "@Imalipay/loans":"https://dashboard.sandbox.imalipay.com/loans-mfe/Imalipay-loans.js"
       }
 }
