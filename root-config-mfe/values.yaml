@@ -42,7 +42,7 @@ service:
 
 ingress:
   enabled: true
-  className: nginx
+  className: 'nginx'
   annotations: 
     nginx.org/mergeable-ingress-type: minion
     nginx.org/redirect-to-https: "true"
