@@ -45,6 +45,7 @@ ingress:
   className: nginx
   annotations: 
     nginx.org/mergeable-ingress-type: minion
+    nginx.org/redirect-to-https: "true"
   hosts:
     - host: dashboard.sandbox.imalipay.com
       paths: 
