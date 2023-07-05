@@ -1,0 +1,18 @@
+name: Root-config Development Pipeline
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  root-config-mfe:
+    uses: Imalipay-org/.github/.github/workflows/frontend_pipeline.yml@main
+    with:
+      configure_environment: development
+      repository_name: root-config-mfe
+      partner: root-config-mfe
+    secrets:
+      aws_configured_region: ${{ secrets.DEVELOPMENT_REGION }}
+      aws_configured_key_id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
+      aws_configured_key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
