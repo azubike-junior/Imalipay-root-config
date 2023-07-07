@@ -10,6 +10,7 @@ jobs:
     uses: Imalipay-org/.github/.github/workflows/frontend_pipeline.yml@main
     with:
       configure_environment: development
+      configure_namespace: development
       repository_name: root-config-mfe
       partner: root-config-mfe
     secrets:
