@@ -47,7 +47,7 @@ ingress:
     nginx.org/redirect-to-https: "true"
     nginx.org/mergeable-ingress-type: minion
   hosts:
-    - host: dashboard.development.imalipay.com
+    - host: dashboard.imalipay.com
       paths: 
       - path: "/"
         pathType: Prefix

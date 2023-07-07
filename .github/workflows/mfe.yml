@@ -3,7 +3,7 @@ name: MFE Workflow
 on:
   push:
     branches:
-#       - main
+      - production
       - development
 
 
@@ -11,20 +11,20 @@ jobs:
 
   build:
     name: build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, production]
     steps:
       - name: branch name
         run: echo running on branch ${GITHUB_REF##*/}
         
       - name: checkout the repository
         uses: actions/checkout@v3
-      
+
       - name: aws login
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
+          aws-access-key-id: ${{ secrets.PRODUCTION_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PRODUCTION_REGION }}
 
       - name: ecr login
         id: login-ecr
@@ -44,7 +44,7 @@ jobs:
   deployment:
     needs: build
     name: deployment
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, production]
     steps:
       - name: deployment environment
         run: echo deploying to ${GITHUB_REF##*/}
@@ -55,9 +55,9 @@ jobs:
       - name: aws login
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.DEVELOPMENT_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.DEVELOPMENT_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.DEVELOPMENT_REGION }}
+          aws-access-key-id: ${{ secrets.PRODUCTION_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PRODUCTION_REGION }}
 
       - name: ecr login
         id: login-ecr
@@ -66,9 +66,17 @@ jobs:
       - name: install kubectl
         uses: azure/setup-kubectl@v3
           
-      - name: update kubernetes credentials 
-        run: aws eks update-kubeconfig --name ${GITHUB_REF##*/} --region ${{ secrets.DEVELOPMENT_REGION }}
-      
+      - name: install aws cli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
+      - name: update kubernetes credentials
+        run: |
+          aws eks update-kubeconfig --name ${GITHUB_REF##*/} --region ${{ secrets.PRODUCTION_REGION }}
+          cat /home/runner/.kube/config     
+ 
       - uses: azure/setup-helm@v3
         with:
           version: 'v3.11.1' # default is latest (stable)
@@ -82,8 +90,6 @@ jobs:
           ECR_REPOSITORY: ${{ github.event.repository.name }}
         run: |
           helm upgrade --install $REPO ./$REPO \
+            -n ${GITHUB_REF##*/} \
             --set image.tag=$IMAGE_TAG \
             --set image.repository=$ECR_REGISTRY/$ECR_REPOSITORY --debug
-            
-
-
