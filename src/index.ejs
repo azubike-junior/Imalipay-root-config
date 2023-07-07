@@ -54,7 +54,7 @@
 
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="<%= process.env.URL %>"></script> -->
-  <script type="systemjs-importmap" src="https://dashboard.imalipay.com/importmap.json"></script>
+  <script type="systemjs-importmap" src="https://dashboard.development.imalipay.com/importmap.json"></script>
 
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
 
@@ -142,23 +142,23 @@
           </div>
         </route>
 
-<!--        <route path="users">-->
-<!--          <div class="content">-->
-<!--          <application name="@Imalipay/customers" loader="moduleSpinner" error="moduleError" props="basePaths"></application>-->
-<!--          </div>-->
-<!--        </route>-->
+        <route path="users">
+          <div class="content">
+          <application name="@Imalipay/customers" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
+          </div>
+        </route>
 
-<!--        <route path="payments">-->
-<!--          <div class="content">-->
-<!--          <application name="@Imalipay/payments" loader="moduleSpinner" error="moduleError" props="basePaths"></application>-->
-<!--          </div>-->
-<!--        </route>-->
+        <route path="payments">
+          <div class="content">
+          <application name="@Imalipay/payments" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
+          </div>
+        </route>
 
-<!--        <route path="loans">-->
-<!--          &lt;!&ndash; <div class="content"> &ndash;&gt;-->
-<!--          <application name="@Imalipay/loans" loader="moduleSpinner" error="moduleError" props="basePaths"></application>-->
-<!--          &lt;!&ndash; </div> &ndash;&gt;-->
-<!--        </route>-->
+        <route path="loans">
+          <!-- <div class="content"> -->
+          <application name="@Imalipay/loans" loader="moduleSpinner" error="moduleError" props="basePaths"></application>
+          <!-- </div> -->
+        </route>
         
         <route path="wallets">
           <div class="content">
