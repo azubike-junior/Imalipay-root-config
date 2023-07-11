@@ -1,15 +1,5 @@
 {
       "imports": {
-        "react": "https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js",
-        "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js",
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-        "react-router-dom": "https://cdn.jsdelivr.net/npm/react-router-dom@6.10.0/dist/umd/react-router-dom.production.min.js",
-        "@Imalipay/root-config": "https://dashboard.sandbox.imalipay.com/Imalipay-root-config.js",
-        "@Imalipay/auth":"https://dashboard.sandbox.imalipay.com/auth-mfe/Imalipay-auth.js",
-        "@Imalipay/dashboard":"https://dashboard.sandbox.imalipay.com/dashboard-mfe/Imalipay-dashboard.js",
-        "@Imalipay/marketPlace":"https://dashboard.sandbox.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
-        "@Imalipay/customers":"https://dashboard.sandbox.imalipay.com/customers-mfe/Imalipay-customers.js",
-        "@Imalipay/payments":"https://dashboard.sandbox.imalipay.com/payments-mfe/Imalipay-payments.js",
-        "@Imalipay/loans":"https://dashboard.sandbox.imalipay.com/loans-mfe/Imalipay-loans.js"
+        
       }
 }
