@@ -1,20 +1,22 @@
 import { LifeCycles, registerApplication, start } from "single-spa";
 import {
-  constructApplications, constructLayoutEngine, constructRoutes
+  constructApplications,
+  constructLayoutEngine,
+  constructRoutes,
 } from "single-spa-layout";
 import "./index.css";
 
 const basePaths = {
-  // access: "acces",
-  // configuration: "configuration/",
-  // formbuilder: "configuration/forms",
-  // accounting: "configuration/accounting",
-  // "customer-management": "customer-management",
-  customers: "dashboard/registered-users",
-  payments:"dashboard/payments",
-  marketPlace: "dashboard/marketPlace",
+  loans: "loans",
+  customers: "users",
+  payments: "payments",
+  marketPlace: "market-place",
   dashboard: "dashboard",
-  auth:'/'
+  "device-management": "device-management",
+  wallet: "wallets",
+  messaging: "messaging",
+  settings: "settings",
+  auth: "/",
 };
 
 const routes = constructRoutes(document.querySelector("#single-spa-layout"), {
@@ -30,8 +32,7 @@ const routes = constructRoutes(document.querySelector("#single-spa-layout"), {
   props: {
     basePaths,
   },
-});;
-
+});
 
 const applications = constructApplications({
   routes,
@@ -48,10 +49,10 @@ registerApplication({
   name: "@Imalipay/dashboard",
   app: (): Promise<LifeCycles> =>
     (window as any).System.import("@Imalipay/dashboard"),
-    activeWhen: Object.values(basePaths).filter((v) => v !== "/"),
-    customProps: {
-      basePaths,
-      token: "prop from root",
+  activeWhen: Object.values(basePaths).filter((v) => v !== "/"),
+  customProps: {
+    basePaths,
+    token: "prop from root",
   },
 });
 

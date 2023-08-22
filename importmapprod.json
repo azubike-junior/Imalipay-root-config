@@ -10,6 +10,9 @@
         "@Imalipay/marketPlace":"https://dashboard.sandbox.imalipay.com/marketplace-mfe/Imalipay-marketPlace.js",
         "@Imalipay/customers":"https://dashboard.sandbox.imalipay.com/customers-mfe/Imalipay-customers.js",
         "@Imalipay/payments":"https://dashboard.sandbox.imalipay.com/payments-mfe/Imalipay-payments.js",
-        "@Imalipay/loans":"https://dashboard.sandbox.imalipay.com/loans-mfe/Imalipay-loans.js"
-      }
+        "@Imalipay/loans":"https://dashboard.sandbox.imalipay.com/loans-mfe/Imalipay-loans.js",
+         "@Imalipay/ledgers":"https://dashboard.sandbox.imalipay.com/ledger-mfe/Imalipay-ledgers.js",
+        "@Imalipay/deviceManagement":"https://dashboard.sandbox.imalipay.com/device-management-mfe/Imalipay-deviceManagement.js"
+          }
 }
+  
